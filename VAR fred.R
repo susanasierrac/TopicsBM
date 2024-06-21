@@ -91,7 +91,7 @@ colnames(data)=c("DATE", "FFUNDS", "LEVERAGE", "VIX", "REER")
 #Log of VIX
 data["VIX"]=log(data["VIX"])
 data["VIXlag"]=shift(data$VIX)
-ggplot(data[2:50], aes(x=VIXlag, y=LEVERAGE))+ 
+ggplot(data[2:50,], aes(x=VIXlag, y=LEVERAGE))+ 
   geom_point()+ labs(x = "Lagged logarithm of VIX index", y="Leverage")+ 
   stat_cor(method = "pearson", label.x = 3.2, label.y = 35, size=7)+
   theme_classic(base_size = 18)
